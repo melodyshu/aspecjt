@@ -1,4 +1,4 @@
-package com.example.aspectj;
+package com.example.annotation;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 public class GreetingAspect {
 
     /**
-     * execution表达式拦截方法
+     * annotation表达式拦截方法
      * @param joinPoint
      * @return
      * @throws Throwable
      */
-    @Around("execution(* com.example.aspectj.GreetingImpl.*(..))")
+    @Around("@annotation(com.example.annotation.MyTat)")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         before();
         Object result = joinPoint.proceed();
